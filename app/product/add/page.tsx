@@ -1,5 +1,5 @@
-import classes from '../../../styles/AddProduct.module.css'
-import {db} from '../../../db';
+import classes from '@/styles/AddProduct.module.css'
+import {db} from '@/db';
 
 export default function Page() {
 

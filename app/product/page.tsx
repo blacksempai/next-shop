@@ -1,27 +1,18 @@
-interface TimeData {
-    datetime: string 
-}
-
-interface Todo {
-    title: string
-}
+import { db } from "@/db"
+import classes from "@/styles/Products.module.css";
+import Product from '@/components/Product/Product';
+import { Product as ProductType } from "@/components/Product/Product.domain";
 
 export default async function Products() {
-    const res = await fetch('http://worldtimeapi.org/api/timezone/Europe/Kyiv', {
-        next: {
-            revalidate: 5
-        }
-    });
-    const data: TimeData = await res.json();
 
-    const res2 = await fetch('https://jsonplaceholder.typicode.com/todos');
-    const todos: Todo[] = await res2.json();
+    const products: ProductType[] = await db.Product.find();
 
     return (
         <>
-            <h1>Product</h1>
-            <p>Current time: {data.datetime}</p>
-            {todos.map(t => <p key={t.title}>{t.title}</p>)}
+            <h1>Products</h1>
+            <div className={classes.products_container}>
+                {products.map(p => <Product key={p._id} product={p}/>)}
+            </div>
         </>
     )
 }

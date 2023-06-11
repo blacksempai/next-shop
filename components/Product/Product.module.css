@@ -1,0 +1,32 @@
+.product {
+    background-color: #F8F1F1;
+    border-radius: 9px;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.product:hover {
+    box-shadow: 0 2px 8px 1px #cfcfcf;
+}
+
+.product img {
+    transition: all .2s;
+}
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+.product_price {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #E57C23;
+    margin: 0;
+}
+
+.product_title {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.15rem;
+}
